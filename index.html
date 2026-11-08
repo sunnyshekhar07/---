@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>दीपावली — उमेश प्रसाद यादव</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font-family:"Noto Sans Devanagari","Mangal",system-ui,sans-serif;background:#04172b;color:#fff}
+#fx{position:fixed;inset:0;z-index:1;pointer-events:none}
+.stage{position:relative;width:100vw;height:100svh;overflow:hidden;background:
+radial-gradient(circle at 50% 50%,rgba(245,197,66,.14),transparent 25%),
+radial-gradient(circle at 20% 80%,rgba(46,204,113,.12),transparent 30%),
+linear-gradient(135deg,#031329,#062c4a 50%,#031a20)}
+.center{position:absolute;inset:0;z-index:5;display:grid;place-items:center;text-align:center;padding:25px}
+.intro{transition:opacity .6s,transform .6s}.intro.hide{opacity:0;transform:scale(1.08);pointer-events:none}
+.introLogo{width:105px;height:105px;object-fit:contain;filter:drop-shadow(0 0 22px rgba(46,204,113,.75));animation:float 3s ease-in-out infinite}
+.intro h2{margin:16px 0 8px;font-size:clamp(25px,4vw,44px);color:#ffeeb0;text-shadow:0 0 18px #d89b22}
+.intro p{margin:0 0 22px;color:#d7f6e4;font-size:clamp(14px,2vw,19px)}
+button{border:1px solid rgba(255,235,150,.8);border-radius:999px;padding:16px 34px;background:linear-gradient(135deg,#f5c542,#d68b0a);color:#2a1700;font-weight:900;font-size:18px;cursor:pointer;box-shadow:0 0 25px rgba(245,197,66,.55),inset 0 1px rgba(255,255,255,.6);animation:buttonPulse 1.6s infinite}
+button:active{transform:scale(.96)}
+.reveal{position:absolute;inset:0;z-index:3;display:grid;place-items:center;opacity:0;transform:scale(.96);transition:opacity 1.2s,transform 1.2s;pointer-events:none}
+.reveal.show{opacity:1;transform:scale(1)}
+.content{width:min(1120px,92vw);height:min(760px,92svh);display:grid;grid-template-columns:44% 56%;align-items:center;padding:40px 50px 60px;border:1px solid rgba(245,197,66,.38);border-radius:30px;background:linear-gradient(135deg,rgba(4,38,68,.75),rgba(2,17,31,.72));box-shadow:0 0 80px rgba(245,197,66,.12),inset 0 0 60px rgba(46,204,113,.06);backdrop-filter:blur(8px)}
+.photoBox{height:100%;display:flex;align-items:end;justify-content:center;position:relative}.halo{position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(46,204,113,.32),rgba(245,197,66,.13),transparent 68%);filter:blur(5px)}
+.photo{position:relative;z-index:2;max-width:100%;max-height:600px;object-fit:contain;filter:drop-shadow(0 25px 30px rgba(0,0,0,.6));opacity:0;transform:translateY(45px) scale(.9)}
+.show .photo{animation:photoIn 1.4s .45s cubic-bezier(.2,.8,.2,1) forwards}
+.copy{text-align:center;padding:20px}.small{font-size:clamp(16px,2vw,22px);color:#eafff3}.diwali{font-size:clamp(58px,8vw,100px);font-weight:950;line-height:1.05;margin:12px 0;background:linear-gradient(#fff8cf,#f5c542,#ff8d00);-webkit-background-clip:text;color:transparent;filter:drop-shadow(0 0 20px rgba(245,197,66,.4));opacity:0;transform:translateY(20px)}
+.show .diwali{animation:textIn 1s .25s forwards}
+.wish{font-size:clamp(19px,2.5vw,29px);line-height:1.65;color:#fff5d7;opacity:0}.show .wish{animation:textIn 1s .65s forwards}
+.name{font-size:clamp(28px,3.5vw,43px);font-weight:900;margin-top:25px;opacity:0}.show .name{animation:textIn 1s .9s forwards}
+.desig{color:#8ff0b5;font-size:clamp(14px,1.7vw,20px);margin-top:5px;opacity:0}.show .desig{animation:textIn 1s 1.05s forwards}
+.logoFinal{position:absolute;top:18px;left:22px;width:70px;height:70px;object-fit:contain;filter:drop-shadow(0 0 15px rgba(46,204,113,.65));z-index:4}
+.curtain{position:absolute;top:-4%;width:54%;height:108%;z-index:10;background:
+radial-gradient(ellipse at 50% 45%,rgba(255,214,90,.12),transparent 38%),
+repeating-linear-gradient(90deg,#06345b 0 18px,#0a4a70 19px 31px,#062d50 32px 48px);
+box-shadow:inset 0 0 60px rgba(0,0,0,.55),0 0 40px rgba(0,0,0,.55);transition:transform 1.8s cubic-bezier(.77,0,.18,1)}
+.curtain:after{content:"";position:absolute;top:0;bottom:0;width:38px;background:linear-gradient(90deg,#b37a0b,#ffe17a,#b37a0b);box-shadow:0 0 18px rgba(245,197,66,.55)}
+.left{left:-3%;border-radius:0 0 48% 0;transform-origin:left center}.left:after{right:0}
+.right{right:-3%;border-radius:0 0 0 48%;transform-origin:right center}.right:after{left:0}
+.open .left{transform:translateX(-105%)}.open .right{transform:translateX(105%)}
+.valance{position:absolute;top:0;left:0;right:0;height:80px;z-index:11;background:radial-gradient(ellipse at 50% -20%,#ffe47b,#b5790b 42%,transparent 43%);opacity:.85;pointer-events:none}
+.diyas{position:absolute;z-index:12;bottom:15px;left:0;right:0;display:flex;justify-content:space-around;padding:0 8%;pointer-events:none}
+.diya{width:52px;height:23px;border-radius:0 0 28px 28px;background:linear-gradient(#f5c542,#a74f00);position:relative}.diya:before{content:"";position:absolute;left:50%;top:-34px;width:18px;height:33px;transform:translateX(-50%);background:radial-gradient(ellipse,#fff 5%,#ffe45c 30%,#ff8500 60%,transparent 72%);filter:drop-shadow(0 0 12px #ffc42e);animation:flicker .7s infinite alternate}
+@keyframes float{50%{transform:translateY(-8px)}}@keyframes buttonPulse{50%{box-shadow:0 0 42px rgba(245,197,66,.8),inset 0 1px #fff}}@keyframes photoIn{to{opacity:1;transform:none}}@keyframes textIn{to{opacity:1;transform:none}}@keyframes flicker{to{transform:translateX(-50%) scale(1.12) rotate(2deg)}}
+@media(max-width:760px){.content{display:flex;flex-direction:column;width:92vw;height:90svh;padding:85px 18px 65px;justify-content:center}.photoBox{height:45%;width:100%;min-height:260px}.photo{max-height:100%;max-width:90%}.halo{width:280px;height:280px}.copy{padding:5px}.small{font-size:16px}.diwali{font-size:clamp(52px,16vw,78px);margin:6px 0}.wish{font-size:18px}.name{font-size:27px;margin-top:16px}.desig{font-size:14px}.introLogo{width:85px;height:85px}.curtain{width:58%}.diyas{padding:0 4%}.diya{width:40px;height:18px}.diya:before{top:-28px;transform:translateX(-50%) scale(.82)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<div class="stage" id="stage">
+<div class="curtain left"></div><div class="curtain right"></div><div class="valance"></div>
+<div class="center"><div class="intro" id="intro">
+<img src="logo.png" class="introLogo" alt="Logo">
+<h2>एक खास दीपावली शुभकामना</h2><p>परदा हटाइए और शुभकामना का अनुभव कीजिए</p>
+<button id="revealBtn">🪔 REVEAL 🪔</button>
+</div></div>
+<div class="reveal" id="reveal">
+<img src="logo.png" class="logoFinal" alt="Logo">
+<div class="content">
+<div class="photoBox"><div class="halo"></div><img src="leader.png" class="photo" alt="उमेश प्रसाद यादव"></div>
+<div class="copy"><div class="small">मेरी ओर से आप सभी को</div><div class="diwali">दीपावली</div><div class="wish">की ढेर सारी बधाई एवं शुभकामनाएं।</div><div class="name">उमेश प्रसाद यादव</div><div class="desig">समाजसेवी व पूर्व मुखिया पति, गुरमियाँ पंचायत</div></div>
+</div></div>
+<div class="diyas"><i class="diya"></i><i class="diya"></i><i class="diya"></i><i class="diya"></i><i class="diya"></i></div>
+</div>
+<script>
+const stage=document.getElementById('stage'),intro=document.getElementById('intro'),reveal=document.getElementById('reveal');
+document.getElementById('revealBtn').onclick=()=>{stage.classList.add('open');intro.classList.add('hide');setTimeout(()=>reveal.classList.add('show'),700);burst(true)}
+const c=document.getElementById('fx'),x=c.getContext('2d');let W,H,ps=[];
+function rs(){W=c.width=innerWidth;H=c.height=innerHeight}addEventListener('resize',rs);rs();
+function burst(force){let X=force?W/2:Math.random()*W,Y=force?H*.35:H*.1+Math.random()*H*.4;for(let i=0;i<70;i++){let a=Math.random()*6.283,s=1.2+Math.random()*4;ps.push({x:X,y:Y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,l:1})}}
+setInterval(()=>{if(stage.classList.contains('open'))burst(false)},1200);
+(function loop(){x.clearRect(0,0,W,H);ps=ps.filter(p=>p.l>0);for(const p of ps){p.x+=p.vx;p.y+=p.vy;p.vy+=.025;p.l-=.017;x.globalAlpha=p.l;x.fillStyle=Math.random()>.25?'#f5c542':'#8ff0b5';x.beginPath();x.arc(p.x,p.y,1.5,0,7);x.fill()}x.globalAlpha=1;requestAnimationFrame(loop)})();
+</script>
+</body>
+</html>
