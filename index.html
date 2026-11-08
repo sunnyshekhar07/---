@@ -1,77 +1,110 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>दीपावली — उमेश प्रसाद यादव</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#07000f">
+<title>दीपावली शुभकामनाएं — उमेश प्रसाद यादव</title>
 <style>
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}
-body{font-family:"Noto Sans Devanagari","Mangal",system-ui,sans-serif;background:#04172b;color:#fff}
-#fx{position:fixed;inset:0;z-index:1;pointer-events:none}
-.stage{position:relative;width:100vw;height:100svh;overflow:hidden;background:
-radial-gradient(circle at 50% 50%,rgba(245,197,66,.14),transparent 25%),
-radial-gradient(circle at 20% 80%,rgba(46,204,113,.12),transparent 30%),
-linear-gradient(135deg,#031329,#062c4a 50%,#031a20)}
-.center{position:absolute;inset:0;z-index:5;display:grid;place-items:center;text-align:center;padding:25px}
-.intro{transition:opacity .6s,transform .6s}.intro.hide{opacity:0;transform:scale(1.08);pointer-events:none}
-.introLogo{width:105px;height:105px;object-fit:contain;filter:drop-shadow(0 0 22px rgba(46,204,113,.75));animation:float 3s ease-in-out infinite}
-.intro h2{margin:16px 0 8px;font-size:clamp(25px,4vw,44px);color:#ffeeb0;text-shadow:0 0 18px #d89b22}
-.intro p{margin:0 0 22px;color:#d7f6e4;font-size:clamp(14px,2vw,19px)}
-button{border:1px solid rgba(255,235,150,.8);border-radius:999px;padding:16px 34px;background:linear-gradient(135deg,#f5c542,#d68b0a);color:#2a1700;font-weight:900;font-size:18px;cursor:pointer;box-shadow:0 0 25px rgba(245,197,66,.55),inset 0 1px rgba(255,255,255,.6);animation:buttonPulse 1.6s infinite}
-button:active{transform:scale(.96)}
-.reveal{position:absolute;inset:0;z-index:3;display:grid;place-items:center;opacity:0;transform:scale(.96);transition:opacity 1.2s,transform 1.2s;pointer-events:none}
-.reveal.show{opacity:1;transform:scale(1)}
-.content{width:min(1120px,92vw);height:min(760px,92svh);display:grid;grid-template-columns:44% 56%;align-items:center;padding:40px 50px 60px;border:1px solid rgba(245,197,66,.38);border-radius:30px;background:linear-gradient(135deg,rgba(4,38,68,.75),rgba(2,17,31,.72));box-shadow:0 0 80px rgba(245,197,66,.12),inset 0 0 60px rgba(46,204,113,.06);backdrop-filter:blur(8px)}
-.photoBox{height:100%;display:flex;align-items:end;justify-content:center;position:relative}.halo{position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(46,204,113,.32),rgba(245,197,66,.13),transparent 68%);filter:blur(5px)}
-.photo{position:relative;z-index:2;max-width:100%;max-height:600px;object-fit:contain;filter:drop-shadow(0 25px 30px rgba(0,0,0,.6));opacity:0;transform:translateY(45px) scale(.9)}
-.show .photo{animation:photoIn 1.4s .45s cubic-bezier(.2,.8,.2,1) forwards}
-.copy{text-align:center;padding:20px}.small{font-size:clamp(16px,2vw,22px);color:#eafff3}.diwali{font-size:clamp(58px,8vw,100px);font-weight:950;line-height:1.05;margin:12px 0;background:linear-gradient(#fff8cf,#f5c542,#ff8d00);-webkit-background-clip:text;color:transparent;filter:drop-shadow(0 0 20px rgba(245,197,66,.4));opacity:0;transform:translateY(20px)}
-.show .diwali{animation:textIn 1s .25s forwards}
-.wish{font-size:clamp(19px,2.5vw,29px);line-height:1.65;color:#fff5d7;opacity:0}.show .wish{animation:textIn 1s .65s forwards}
-.name{font-size:clamp(28px,3.5vw,43px);font-weight:900;margin-top:25px;opacity:0}.show .name{animation:textIn 1s .9s forwards}
-.desig{color:#8ff0b5;font-size:clamp(14px,1.7vw,20px);margin-top:5px;opacity:0}.show .desig{animation:textIn 1s 1.05s forwards}
-.logoFinal{position:absolute;top:18px;left:22px;width:70px;height:70px;object-fit:contain;filter:drop-shadow(0 0 15px rgba(46,204,113,.65));z-index:4}
-.curtain{position:absolute;top:-4%;width:54%;height:108%;z-index:10;background:
-radial-gradient(ellipse at 50% 45%,rgba(255,214,90,.12),transparent 38%),
-repeating-linear-gradient(90deg,#06345b 0 18px,#0a4a70 19px 31px,#062d50 32px 48px);
-box-shadow:inset 0 0 60px rgba(0,0,0,.55),0 0 40px rgba(0,0,0,.55);transition:transform 1.8s cubic-bezier(.77,0,.18,1)}
-.curtain:after{content:"";position:absolute;top:0;bottom:0;width:38px;background:linear-gradient(90deg,#b37a0b,#ffe17a,#b37a0b);box-shadow:0 0 18px rgba(245,197,66,.55)}
-.left{left:-3%;border-radius:0 0 48% 0;transform-origin:left center}.left:after{right:0}
-.right{right:-3%;border-radius:0 0 0 48%;transform-origin:right center}.right:after{left:0}
-.open .left{transform:translateX(-105%)}.open .right{transform:translateX(105%)}
-.valance{position:absolute;top:0;left:0;right:0;height:80px;z-index:11;background:radial-gradient(ellipse at 50% -20%,#ffe47b,#b5790b 42%,transparent 43%);opacity:.85;pointer-events:none}
-.diyas{position:absolute;z-index:12;bottom:15px;left:0;right:0;display:flex;justify-content:space-around;padding:0 8%;pointer-events:none}
-.diya{width:52px;height:23px;border-radius:0 0 28px 28px;background:linear-gradient(#f5c542,#a74f00);position:relative}.diya:before{content:"";position:absolute;left:50%;top:-34px;width:18px;height:33px;transform:translateX(-50%);background:radial-gradient(ellipse,#fff 5%,#ffe45c 30%,#ff8500 60%,transparent 72%);filter:drop-shadow(0 0 12px #ffc42e);animation:flicker .7s infinite alternate}
-@keyframes float{50%{transform:translateY(-8px)}}@keyframes buttonPulse{50%{box-shadow:0 0 42px rgba(245,197,66,.8),inset 0 1px #fff}}@keyframes photoIn{to{opacity:1;transform:none}}@keyframes textIn{to{opacity:1;transform:none}}@keyframes flicker{to{transform:translateX(-50%) scale(1.12) rotate(2deg)}}
-@media(max-width:760px){.content{display:flex;flex-direction:column;width:92vw;height:90svh;padding:85px 18px 65px;justify-content:center}.photoBox{height:45%;width:100%;min-height:260px}.photo{max-height:100%;max-width:90%}.halo{width:280px;height:280px}.copy{padding:5px}.small{font-size:16px}.diwali{font-size:clamp(52px,16vw,78px);margin:6px 0}.wish{font-size:18px}.name{font-size:27px;margin-top:16px}.desig{font-size:14px}.introLogo{width:85px;height:85px}.curtain{width:58%}.diyas{padding:0 4%}.diya{width:40px;height:18px}.diya:before{top:-28px;transform:translateX(-50%) scale(.82)}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+:root{--gold:#ffd76a;--gold2:#ff9b19;--cream:#fff4d1;--bg:#07000f}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font-family:system-ui,-apple-system,"Noto Sans Devanagari",sans-serif;background:var(--bg);color:white}
+#scene{position:fixed;inset:0;overflow:hidden;background:
+ radial-gradient(circle at 50% 48%,rgba(255,157,25,.18),transparent 28%),
+ radial-gradient(circle at 50% 100%,rgba(126,0,40,.25),transparent 55%),
+ linear-gradient(145deg,#07000f,#18001f 48%,#040008)}
+canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.particles{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none}
+.particle{position:absolute;width:3px;height:3px;border-radius:50%;background:#ffd76a;box-shadow:0 0 12px #ffb000;animation:float 5s linear infinite}
+@keyframes float{0%{transform:translateY(20vh) scale(.4);opacity:0}20%{opacity:1}100%{transform:translateY(-110vh) scale(1.2);opacity:0}}
+
+.diya{position:absolute;z-index:4;width:58px;height:30px;border-radius:0 0 40px 40px;background:linear-gradient(#ff7b13,#751400);box-shadow:0 10px 35px #ff6a0088}
+.diya:before{content:"";position:absolute;left:50%;top:-29px;transform:translateX(-50%);width:16px;height:29px;border-radius:50%;background:#ffe17c;box-shadow:0 0 8px #fff,0 0 25px #ffad00,0 0 45px #ff4d00}
+.d1{left:7%;bottom:8%}.d2{right:7%;bottom:8%}.d3{left:18%;top:14%;transform:scale(.7)}.d4{right:18%;top:14%;transform:scale(.7)}
+
+.logoIntro{position:absolute;z-index:12;left:50%;top:30%;transform:translate(-50%,-50%);width:105px;height:105px;object-fit:contain;filter:drop-shadow(0 0 24px #ffd04d);animation:logoGlow 2.5s ease-in-out infinite}
+@keyframes logoGlow{50%{filter:drop-shadow(0 0 40px #ff9f22)}}
+
+.intro{position:absolute;z-index:20;left:50%;top:56%;transform:translate(-50%,-50%);width:min(92vw,500px);text-align:center}
+.kicker{font-size:13px;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
+.intro h1{margin:12px 0 8px;font-size:clamp(25px,7vw,42px);font-weight:800}
+.intro p{margin:0 0 25px;color:#eadfc8;font-size:15px;line-height:1.6}
+#tap{border:2px solid var(--gold);border-radius:999px;background:linear-gradient(135deg,#8e1f00,#ff8b00,#9b2500);color:#fff;width:min(75vw,240px);min-height:62px;font-size:22px;font-weight:900;letter-spacing:2px;cursor:pointer;box-shadow:0 0 15px #ffd76a,0 0 42px #ff6a0080;animation:pulse 1.5s infinite;touch-action:manipulation}
+@keyframes pulse{50%{transform:scale(1.045);box-shadow:0 0 28px #ffd76a,0 0 58px #ff6a00a0}}
+
+.reveal{position:absolute;inset:0;z-index:8;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;opacity:0;transform:scale(.96);pointer-events:none;transition:opacity 1.1s .6s,transform 1.1s .6s}
+.open .reveal{opacity:1;transform:scale(1)}
+.card{width:min(92vw,760px);padding:25px 20px 28px;border:1px solid #ffd76a88;border-radius:30px;background:linear-gradient(145deg,#22002dbf,#07000ed9);backdrop-filter:blur(10px);box-shadow:0 0 80px #ff8b0026}
+.card .logo{width:65px;height:65px;object-fit:contain;filter:drop-shadow(0 0 15px #ffd76a)}
+.photo{width:clamp(135px,34vw,205px);height:clamp(135px,34vw,205px);object-fit:cover;border-radius:50%;display:block;margin:12px auto 18px;border:4px solid var(--gold);box-shadow:0 0 0 6px #5b230044,0 0 40px #ff9d0088}
+.wish{font-size:clamp(18px,4.5vw,29px);line-height:1.65;color:#fff8e6}
+.wish b{display:block;margin:2px 0;color:var(--gold);font-family:Georgia,"Noto Serif Devanagari",serif;font-style:italic;font-size:clamp(38px,11vw,70px);line-height:1.15;text-shadow:0 0 10px #ffb300,0 0 30px #ff7b00}
+.name{margin-top:16px;font-size:clamp(22px,5vw,35px);font-weight:900}
+.role{margin-top:5px;color:#e9d9ba;font-size:clamp(13px,3.5vw,18px)}
+.spark{position:absolute;z-index:5;opacity:0;font-size:32px}
+.open .spark{animation:spark 1.4s ease-out forwards}
+@keyframes spark{0%{transform:scale(.2);opacity:0}25%{opacity:1}100%{transform:scale(1.8) translateY(-30px);opacity:0}}
+
+@media(max-width:600px){
+ .logoIntro{top:25%;width:88px;height:88px}
+ .intro{top:58%}
+ .intro h1{font-size:28px}
+ .intro p{font-size:14px;padding:0 8px}
+ .d3,.d4{display:none}
+}
 </style>
 </head>
 <body>
-<canvas id="fx"></canvas>
-<div class="stage" id="stage">
-<div class="curtain left"></div><div class="curtain right"></div><div class="valance"></div>
-<div class="center"><div class="intro" id="intro">
-<img src="logo.png" class="introLogo" alt="Logo">
-<h2>एक खास दीपावली शुभकामना</h2><p>परदा हटाइए और शुभकामना का अनुभव कीजिए</p>
-<button id="revealBtn">🪔 REVEAL 🪔</button>
-</div></div>
-<div class="reveal" id="reveal">
-<img src="logo.png" class="logoFinal" alt="Logo">
-<div class="content">
-<div class="photoBox"><div class="halo"></div><img src="leader.png" class="photo" alt="उमेश प्रसाद यादव"></div>
-<div class="copy"><div class="small">मेरी ओर से आप सभी को</div><div class="diwali">दीपावली</div><div class="wish">की ढेर सारी बधाई एवं शुभकामनाएं।</div><div class="name">उमेश प्रसाद यादव</div><div class="desig">समाजसेवी व पूर्व मुखिया पति, गुरमियाँ पंचायत</div></div>
-</div></div>
-<div class="diyas"><i class="diya"></i><i class="diya"></i><i class="diya"></i><i class="diya"></i><i class="diya"></i></div>
+<div id="scene">
+ <canvas id="fx"></canvas>
+ <div class="particles" id="particles"></div>
+ <div class="diya d1"></div><div class="diya d2"></div><div class="diya d3"></div><div class="diya d4"></div>
+ <img class="logoIntro" src="logo.png" alt="Logo">
+
+ <div class="intro">
+  <div class="kicker">एक खास शुभकामना</div>
+  <h1>आपके लिए एक संदेश</h1>
+  <p>दीपावली की शुभकामनाओं का एक खास अनुभव पाने के लिए नीचे टैप करें।</p>
+  <button id="tap">🪔 TAP 🪔</button>
+ </div>
+
+ <div class="reveal">
+  <div class="card">
+   <img class="logo" src="logo.png" alt="Logo">
+   <img class="photo" src="leader.png" alt="उमेश प्रसाद यादव">
+   <div class="wish">
+    <span>मेरी ओर से आप सभी को</span>
+    <b>दीपावली</b>
+    <span>की ढेर सारी बधाई एवं शुभकामनाएं।</span>
+   </div>
+   <div class="name">उमेश प्रसाद यादव</div>
+   <div class="role">समाजसेवी व पूर्व मुखिया पति, गुरमियाँ पंचायत</div>
+  </div>
+ </div>
+
+ <div class="spark" style="left:15%;top:30%">✦</div>
+ <div class="spark" style="right:15%;top:34%">✧</div>
 </div>
 <script>
-const stage=document.getElementById('stage'),intro=document.getElementById('intro'),reveal=document.getElementById('reveal');
-document.getElementById('revealBtn').onclick=()=>{stage.classList.add('open');intro.classList.add('hide');setTimeout(()=>reveal.classList.add('show'),700);burst(true)}
-const c=document.getElementById('fx'),x=c.getContext('2d');let W,H,ps=[];
-function rs(){W=c.width=innerWidth;H=c.height=innerHeight}addEventListener('resize',rs);rs();
-function burst(force){let X=force?W/2:Math.random()*W,Y=force?H*.35:H*.1+Math.random()*H*.4;for(let i=0;i<70;i++){let a=Math.random()*6.283,s=1.2+Math.random()*4;ps.push({x:X,y:Y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,l:1})}}
-setInterval(()=>{if(stage.classList.contains('open'))burst(false)},1200);
-(function loop(){x.clearRect(0,0,W,H);ps=ps.filter(p=>p.l>0);for(const p of ps){p.x+=p.vx;p.y+=p.vy;p.vy+=.025;p.l-=.017;x.globalAlpha=p.l;x.fillStyle=Math.random()>.25?'#f5c542':'#8ff0b5';x.beginPath();x.arc(p.x,p.y,1.5,0,7);x.fill()}x.globalAlpha=1;requestAnimationFrame(loop)})();
+const scene=document.getElementById('scene'),tap=document.getElementById('tap');
+let opened=false;
+for(let i=0;i<34;i++){
+ const p=document.createElement('i');p.className='particle';
+ p.style.left=Math.random()*100+'%';p.style.top=(50+Math.random()*55)+'%';
+ p.style.animationDelay=(Math.random()*5)+'s';p.style.animationDuration=(4+Math.random()*5)+'s';
+ document.getElementById('particles').appendChild(p);
+}
+tap.addEventListener('click',()=>{
+ if(opened)return;opened=true;scene.classList.add('open');fireworks();
+});
+tap.addEventListener('touchend',e=>{e.preventDefault();tap.click()},{passive:false});
+
+const c=document.getElementById('fx'),ctx=c.getContext('2d');let W,H,ps=[];
+function resize(){W=c.width=innerWidth*devicePixelRatio;H=c.height=innerHeight*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0)}addEventListener('resize',resize);resize();
+function burst(x,y){const cs=['#ffd76a','#ff9b19','#fff4b0','#ff4b2b','#fff'];for(let i=0;i<75;i++){let a=Math.random()*Math.PI*2,s=1+Math.random()*4.8;ps.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:1,c:cs[i%cs.length],r:1+Math.random()*2})}}
+function fireworks(){for(let i=0;i<8;i++)setTimeout(()=>burst(innerWidth*(.12+.76*Math.random()),innerHeight*(.12+.48*Math.random())),i*420);animate()}
+function animate(){ctx.clearRect(0,0,innerWidth,innerHeight);for(let i=ps.length-1;i>=0;i--){let p=ps[i];p.x+=p.vx;p.y+=p.vy;p.vy+=.035;p.life-=.014;ctx.globalAlpha=Math.max(0,p.life);ctx.fillStyle=p.c;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();if(p.life<=0)ps.splice(i,1)}ctx.globalAlpha=1;if(opened)requestAnimationFrame(animate)}
 </script>
 </body>
-</html>
+  </html>
